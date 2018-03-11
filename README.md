@@ -1,4 +1,4 @@
-# dynamic-docs-server: `dds`
+# A dynamic documentation server `dds`
 A small Flask server that serves documentation (or any static HTML/Markdown).
 
 ## Installation
@@ -7,8 +7,8 @@ __These instructions assume `git`, `pip`, and `python` are on the PATH.__
 
 ```
 // Clone and install
-git clone http://github.com/andrewmfiorillo/dynamic-docs-server.git
-pushd dynamic-docs-server && pip install . && popd
+git clone http://github.com/andrewmfiorillo/dds.git
+pushd dds && pip install . && popd
 ```
 
 ## Usage
@@ -20,7 +20,7 @@ To launch the server:
 //   <bind_ip>     - Default is "0.0.0.0". The IP to bind to.
 //   <bind_port>   - Default is 8001. The port to listen on.
 //   <config_file> - Default is "~/.dds/config.json". The CLI flags take priority over config file's.
-dynamic_docs_server <public_dir> --listen <bind_ip> --port <bind_port> --config <config_file>
+dds <public_dir> --listen <bind_ip> --port <bind_port> --config <config_file>
 ```
 
 ## License

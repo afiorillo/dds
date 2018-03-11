@@ -2,9 +2,9 @@ from setuptools import setup, find_packages
 
 setup(
     # info
-    name='dynamic_docs_server',
+    name='dds',
     version='0.0.1',
-    url='http://github.com/andrewmfiorillo/dynamic-docs-server',
+    url='http://github.com/andrewmfiorillo/dds',
     license='MIT',
     author='Andrew Fiorillo',
     author_email='andrewmfiorillo@gmail.com',
@@ -20,7 +20,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'dynamic_docs_server = dds.cli:main'
+            'dds = dds.cli:main'
         ],
     },
 
