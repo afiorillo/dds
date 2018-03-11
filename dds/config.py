@@ -9,6 +9,7 @@ DEFAULT_CONFIG = {
     'bind_ip': '127.0.0.1',
     'bind_port': 8001,
     'public_dir': Path('~/.dds/public'),
+    'static_dir': Path('~/.dds/public/_static'),
 }
 
 def get_config(config_filepath=DEFAULT_CONFIG_FILE, write_immediately=True):
