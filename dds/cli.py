@@ -1,4 +1,12 @@
-
+import argparse
+from server import run_server
 
 def main():
-    raise NotImplementedError('The CLI has not yet been developed.')
+    parser = argparse.ArgumentParser(
+        description='A dynamic documentation server'
+    )
+    parser.add_argument('--config-file', default=None)
+    # TODO: other arguments
+    args = parser.parse_args()
+
+    app = run_server(config_file=args.config_file)

@@ -16,10 +16,10 @@ pushd dds && pip install . && popd
 To launch the server:
 ```bash
 // options are:
-//   <public_dir>  - This is required. The directory to serve files.
+//   <config_file> - Default is "~/.dds/config.json". The CLI flags take priority over config file's.
+//   <public_dir>  - Default is "~/.dds/public". The directory to serve files.
 //   <bind_ip>     - Default is "0.0.0.0". The IP to bind to.
 //   <bind_port>   - Default is 8001. The port to listen on.
-//   <config_file> - Default is "~/.dds/config.json". The CLI flags take priority over config file's.
 dds <public_dir> --listen <bind_ip> --port <bind_port> --config <config_file>
 ```
 
