@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>{% if title is defined %}{{ title }}{% endif %}</title>
+
+    <!-- FONT
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+    <!-- css
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="/static/css/skeleton.css">
+    <link rel="stylesheet" href="/static/css/normalize.css">
+    <link rel="stylesheet" href="/static/css/defaults.css">
+
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <section class="header">
+        <h2 class="title">There's no index. This page was generated.</h2>
+      </section>
+
+      <section class="listdir-section">
+        {% for filepath, filename, isdir in listdir %}
+        {% if isdir %}
+        <div class="listdir-element listdir-dir row">
+        {% else %}
+        <div class="listdir-element listdir-file row">
+        {% endif %}
+          <h3>{{ filename }}</h3>
+          <a href="{{ filepath }}"><pre>/{{ filepath }}</pre></a>
+        </div>
+        {% endfor %}
+
+      </section>
+
+      <section class="nav-footer">
+        <div class="one-third column">
+          <h4><a href=".."><i class="fas fa-angle-up"></i></a></h4>
+        </div>
+        <div class="one-third column">
+          <h4><a href="https://github.com/andrewmfiorillo/dds"><i class="fab fa-github"></i></a></h4>
+        </div>
+        <div class="one-third column">
+          <h4><a href="/"><i class="fas fa-angle-double-up"></i></a></h4>
+        </div>
+      </section>
+
+    </div>
+
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+  </body>
+</html>

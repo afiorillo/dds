@@ -1,5 +1,6 @@
 # A dynamic documentation server `dds`
 A small Flask server that serves documentation (or any static HTML/Markdown).
+Inspired by [Harp](http://harpjs.com/), but with Sphinx websites in mind.
 
 ## Installation
 

@@ -101,8 +101,13 @@ def render_file(directory, file, config, *args, **kwargs):
         if fp.exists():
             return rfunc(fp, config)
 
+    # if it is the index (and there was none), render the default
+    if file == 'index.html':
+        return renderers.render_default_index(directory, config)
+
     resp = jsonify({
         'status': 'client error',
         'message': 'file "%s" does not exist' % directory.joinpath(file).relative_to(config['public_dir'])
     })
     resp.status_code = httplib.UNAUTHORIZED
+    return resp
