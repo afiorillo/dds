@@ -30,6 +30,6 @@ setup(
         '': ['*.*'],
     },
     exclude_package_data={
-        '': ['*.jpg', '*.png', '*.pdf'],
+        '': ['*.jpg', '*.png', '*.pdf', '*.jinja', '*.css'],
     },
 )

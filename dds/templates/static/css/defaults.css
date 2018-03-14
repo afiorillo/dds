@@ -1,0 +1,29 @@
+.container {
+  max-width: 800px; }
+.header {
+  margin-top: 6rem;
+  text-align: center;
+  border-bottom: 2px solid #eee; }
+.listdir-section {
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #eee; }
+.nav-footer {
+  text-align: center;
+  margin-bottom: 6rem; }
+.listdir-element {
+  margin-left: 10%;
+  width: 80%;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  margin-top: 4rem;}
+.listdir-dir {
+  text-align: left; }
+.listdir-file {
+  text-align: right; }
+
+.code-example {
+  margin-top: 1.5rem;
+  margin-bottom: 0; }
+.code-example-body {
+  white-space: pre;
+  word-wrap: break-word }
