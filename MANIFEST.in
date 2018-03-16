@@ -1,0 +1,1 @@
+recursive-include dds *.css *.jinja *.js
