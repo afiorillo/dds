@@ -6,7 +6,7 @@ from flask import Flask, jsonify, redirect, url_for, send_file
 
 from .config import get_config
 from .util import Path
-import renderers
+from .renderers import render_default_index, render_markdown
 
 # status codes
 UNAUTHORIZED = 401
@@ -84,7 +84,7 @@ def serve_file(relpath, config):
     return resp
 
 __RENDERERS = od()
-__RENDERERS['.md'] = renderers.render_markdown
+__RENDERERS['.md'] = render_markdown
 
 def add_renderer(extension_with_dot, render_func):
     __RENDERERS[str(extension_with_dot).lower()] = render_func
@@ -106,7 +106,7 @@ def render_file(directory, file, config, *args, **kwargs):
 
     # if it is the index (and there was none), render the default
     if file == 'index.html':
-        return renderers.render_default_index(directory, config)
+        return render_default_index(directory, config)
 
     resp = jsonify({
         'status': 'client error',
