@@ -25,7 +25,10 @@ def populate_default_keys(source_file, config, **kwargs):
         listdir.append((str(fp.relative_to(Path(config['public_dir'])).as_posix()), fp.name, fp.is_dir()))
     listdir = sorted(listdir, key=lambda tup: tup[2])
 
-    return {'listdir': listdir}
+    return {
+        'listdir': listdir,
+        'source_file': source_file,
+    }
 
 
 def text_to_response(source_file, config, body_html, **kwargs):
@@ -51,6 +54,7 @@ def render_markdown(source_file, config, **kwargs):
     rend = Markdown()
     body_html = rend.render(source_file.read_text())
     return text_to_response(source_file, config, body_html, **kwargs)
+
 
 def render_default_index(current_dir, config, **kwargs):
     """ Renders the default index file into an HTML string. """
