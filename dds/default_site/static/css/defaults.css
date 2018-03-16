@@ -4,6 +4,8 @@
   margin-top: 6rem;
   text-align: center;
   border-bottom: 2px solid #eee; }
+.center-text {
+  text-align: center; }
 .listdir-section {
   margin-bottom: 2rem;
   border-bottom: 2px solid #eee; }

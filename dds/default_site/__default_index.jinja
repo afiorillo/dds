@@ -35,6 +35,9 @@
         </div>
         {% endfor %}
 
+        {% if listdir|length ==0 %}
+          <h3 class="center-text" style="margin-top: 1em; margin-bottom: 1em;">There are no files or folders to serve!</h3>
+        {% endif %}
       </section>
 
       <section class="nav-footer">
