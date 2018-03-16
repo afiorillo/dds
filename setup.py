@@ -14,7 +14,7 @@ setup(
     packages=find_packages(),
 
     install_requires=[
-        'flask', 'pathlib2', 'mistune',
+        'flask', 'pathlib2', 'mistune', 'requests', 'six',
     ],
     dependency_links=[
     ],
@@ -31,6 +31,6 @@ setup(
         '': ['*.*'],
     },
     exclude_package_data={
-        '': ['*.jpg', '*.png', '*.pdf', '*.jinja', '*.css'],
+        '': ['*.jpg', '*.png', '*.pdf'],
     },
 )

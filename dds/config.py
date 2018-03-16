@@ -1,5 +1,7 @@
-from json import load, dump
-from pathlib2 import PurePath
+from json import load, dumps
+try: from pathlib import PurePath
+except ImportError: from pathlib2 import PurePath
+import six
 
 from .util import Path
 
@@ -22,7 +24,7 @@ def get_config(config_filepath=DEFAULT_CONFIG_FILE, write_immediately=True):
 
     fp = Path(config_filepath).resolve()
     cfg = DEFAULT_CONFIG.copy()
-    with fp.open('rb') as fIn:
+    with fp.open('r') as fIn:
         cfg.update(load(fIn))
     cfg['config_file'] = str(fp)
 
@@ -43,6 +45,6 @@ def write_config(config):
         if isinstance(v, PurePath):
             config[k] = str(v)
 
-    with fp.open('wb') as fOut:
-        dump(config, fOut, indent=2)
+    with fp.open('w') as fOut:
+        fOut.write(six.u(dumps(config, indent=2)))
     return fp
