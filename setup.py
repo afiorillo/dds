@@ -14,7 +14,7 @@ setup(
     packages=find_packages(),
 
     install_requires=[
-        'flask', 'pathlib2', 'mistune',
+        'flask', 'pathlib2', 'mistune', 'requests',
     ],
     dependency_links=[
     ],
