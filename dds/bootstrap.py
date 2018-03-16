@@ -8,17 +8,9 @@ from .config import DEFAULT_CONFIG, write_config
 
 DEFAULT_SITES = Path(__file__).parent.joinpath('default_site')
 
-def main():
-    parser = argparse.ArgumentParser(
-        description='Bootstrap a server configuration and default templates.'
-    )
-    parser.add_argument('server_directory', help='Path to a directory that does NOT exist. '
-                                                 'Will create server files here.')
-    # TODO: other arguments
-    args = parser.parse_args()
-
+def bootstrap_site(server_directory):
     # make the directory
-    dir = Path(args.server_directory)
+    dir = Path(server_directory)
     dir.mkdir(parents=True, exist_ok=False)
 
     # write the default templates
@@ -32,6 +24,17 @@ def main():
     cfg['public_dir'] = pubDir
     cfg['static_dir'] = pubDir.joinpath('static')
     write_config(cfg)
+
+def main():
+    parser = argparse.ArgumentParser(
+        description='Bootstrap a server configuration and default templates.'
+    )
+    parser.add_argument('server_directory', help='Path to a directory that does NOT exist. '
+                                                 'Will create server files here.')
+    # TODO: other arguments
+    args = parser.parse_args()
+    bootstrap_site(args.server_directory)
+
 
 if __name__ == '__main__':
     main()

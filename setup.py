@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
     # info
     name='dds',
-    version='0.0.1',
+    version='0.1.0',
     url='http://github.com/andrewmfiorillo/dds',
     license='MIT',
     author='Andrew Fiorillo',
@@ -20,7 +20,8 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'dds = dds.cli:main'
+            'dds = dds.cli:main',
+            'dds_bootstrap = dds.bootstrap:main',
         ],
     },
 
