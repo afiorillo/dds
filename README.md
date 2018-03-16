@@ -2,6 +2,8 @@
 A small Flask server that serves documentation (or any static HTML/Markdown).
 Inspired by [Harp](http://harpjs.com/), but with Sphinx websites in mind.
 
+[![Build Status](https://travis-ci.org/andrewmfiorillo/dds.svg?branch=master)](https://travis-ci.org/andrewmfiorillo/dds)
+
 ## Installation
 
 __These instructions assume `git`, `pip`, and `python` are on the PATH.__

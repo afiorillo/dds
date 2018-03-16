@@ -1,6 +1,5 @@
 from sys import stderr
 from json import dumps
-import httplib
 from collections import OrderedDict as od
 
 from flask import Flask, jsonify, redirect, url_for, send_file
@@ -8,6 +7,10 @@ from flask import Flask, jsonify, redirect, url_for, send_file
 from .config import get_config
 from .util import Path
 import renderers
+
+# status codes
+UNAUTHORIZED = 401
+NOT_FOUND = 404
 
 def make_app(config_file=None, *args, **kwargs):
     # setup app and config
@@ -68,13 +71,13 @@ def serve_file(relpath, config):
             'status': 'client error',
             'message': 'directory "%s" does not exist' % dir.relative_to(config['public_dir'])
         })
-        resp.status_code = httplib.NOT_FOUND
+        resp.status_code = NOT_FOUND
     elif file.startswith('__'):
         resp = jsonify({
             'status': 'client error',
             'message': 'files with double-underscores "__" are protected'
         })
-        resp.status_code = httplib.UNAUTHORIZED
+        resp.status_code = UNAUTHORIZED
     else:
         resp = render_file(dir, file, config)
 
@@ -109,5 +112,5 @@ def render_file(directory, file, config, *args, **kwargs):
         'status': 'client error',
         'message': 'file "%s" does not exist' % directory.joinpath(file).relative_to(config['public_dir'])
     })
-    resp.status_code = httplib.UNAUTHORIZED
+    resp.status_code = UNAUTHORIZED
     return resp
